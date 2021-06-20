@@ -14,4 +14,6 @@ const jsx = (
   </Provider>
 );
 
+console.log("Ash Running");
+
 ReactDOM.render(jsx, document.getElementById("root"));

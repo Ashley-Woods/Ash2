@@ -1,7 +1,17 @@
-import { render } from "react-dom";
-
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import { App } from "./components/App";
+import configureStore from "./store/configureStore";
 
-const rootElement = document.getElementById("root");
+// create store
+const store = configureStore();
 
-render(<App />, rootElement);
+// create parent java script xml (jsx), and  pass in store, so accessible by children
+const jsx = (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+ReactDOM.render(jsx, document.getElementById("root"));

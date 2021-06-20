@@ -31,9 +31,11 @@ class Map extends Component {
             attribution='&copy; <a href="http://osm.org/copyright"  >OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+
           <MarkerGeneral />
           <MapEvents />
         </MapContainer>
+        zoom level = see console log
       </div>
     );
   }

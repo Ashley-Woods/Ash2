@@ -8,7 +8,6 @@ class App extends Component {
     return (
       <div className="App">
         <h2>Ash - React Leaflet Map</h2>
-        <h2>Current Zoom Level = ToDo </h2>
         <Map />
       </div>
     );

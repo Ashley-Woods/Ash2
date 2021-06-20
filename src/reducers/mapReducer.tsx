@@ -1,33 +1,15 @@
 // mapReducer, called when store created or updated
 
-// BELOW OLD JUST REMINDER
-
-const optionsReducerDefaultState = {
-  sortBy: "alpha",
-  sortOrder: "ascending"
+const mapReducerDefaultState = {
+  zoom: 5
 };
 
-export default (state = optionsReducerDefaultState, action) => {
+export default (state = mapReducerDefaultState, action) => {
   switch (action.type) {
-    case "SORT_BY_ALPHA":
+    case "zoomValue":
       return {
         ...state,
-        sortBy: "alpha"
-      };
-    case "SORT_BY_LENGTH":
-      return {
-        ...state,
-        sortBy: "length"
-      };
-    case "SORT_ASCENDING":
-      return {
-        ...state,
-        sortOrder: "ascending"
-      };
-    case "SORT_DESCENDING":
-      return {
-        ...state,
-        sortOrder: "descending"
+        zoom: action.zoom
       };
     default:
       return state;

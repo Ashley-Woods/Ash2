@@ -5,21 +5,19 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
-    "@reduxjs/toolkit": "1.6.0",
     "leaflet": "1.7.1",
+    "mobx": "6.3.2",
+    "mobx-react": "7.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-jsx": "1.0.0",
     "react-leaflet": "3.2.0",
-    "react-redux": "7.2.4",
-    "react-scripts": "4.0.0",
-    "redux-thunk": "2.3.0"
+    "react-scripts": "4.0.0"
   },
   "devDependencies": {
     "@types/react": "17.0.0",
     "@types/react-dom": "17.0.0",
     "@types/leaft": "1.7.3",
-    "@types/react-redux": "1.1.16",
     "typescript": "4.1.3"
   },
   "scripts": {

@@ -1,43 +1,31 @@
-import React, { Component, useState } from "react";
+import { useState } from "react";
+import { useAsObservableSource, useObserver } from "mobx-react";
+import { useStores } from "../stores/index";
 import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
 import { MarkerGeneral } from "./MarkerGeneral";
 import "../styles/map.css";
 
-function MapEvents() {
-  const [zoomLevel, setZoomLevel] = useState(5); // initial zoom level provided for MapContainer
+export default function Map() {
+  const { mapStore, useStore } = useStores();
+  // const [zoom, setZoom] = mapStore.zoom;  // inital zoom level
 
-  const mapEvents = useMapEvents({
-    zoomend: () => {
-      setZoomLevel(mapEvents.getZoom());
-    }
-  });
+  // track zoomLevelChange
+  // TO DO
+  //  mapStore.zoom = mapEvents.getZoom();
 
-  console.log(zoomLevel);
-
-  return null;
+  return useObserver(() => (
+    <div className="Map">
+      <MapContainer
+        center={[51.505, -0.09]}
+        dragging={true}
+        doubleclickZoom={true}
+      >
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright"  >OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+      </MapContainer>
+      zoom = {mapStore.zoom}
+    </div>
+  ));
 }
-
-class Map extends Component {
-  render() {
-    return (
-      <div className="Map">
-        <MapContainer
-          center={[51.505, -0.09]}
-          zoom={13}
-          dragging={true}
-          doubleClickZoom={true}
-        >
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright"  >OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-
-          <MarkerGeneral />
-          <MapEvents />
-        </MapContainer>
-        zoom level = see console log
-      </div>
-    );
-  }
-}
-export default Map;

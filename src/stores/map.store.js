@@ -3,15 +3,15 @@
 import { makeAutoObservable } from "mobx";
 
 class mapStore {
-  zoomLevel = 15;
+  zoom = 15;
 
   constructor(rootStore) {
-    //    this.rootStore = rootStore;
+    this.rootStore = rootStore;
     makeAutoObservable(this);
   }
 
-  setZoomLevel = (zoomLevel) => {
-    this.zoomLevel = zoomLevel;
+  setZoom = (zoom) => {
+    this.zoom = zoom;
   };
 }
 

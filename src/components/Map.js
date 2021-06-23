@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useAsObservableSource, useObserver } from "mobx-react";
+import { useObserver } from "mobx-react";
 import { useStores } from "../stores/index";
 import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
-import { MarkerGeneral } from "./MarkerGeneral";
+//import { MarkerGeneral } from './MarkerGeneral';
 import "../styles/map.css";
 
 export default function Map() {
   const { mapStore, useStore } = useStores();
-  // const [zoom, setZoom] = mapStore.zoom;  // inital zoom level
+  const [zoom, setZoom] = useState(mapStore.zoom); // inital zoom level
 
   // track zoomLevelChange
   // TO DO
@@ -15,17 +15,18 @@ export default function Map() {
 
   return useObserver(() => (
     <div className="Map">
+      zoom = {mapStore.zoom}
       <MapContainer
         center={[51.505, -0.09]}
         dragging={true}
         doubleclickZoom={true}
+        zoom={mapStore.zoom}
       >
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright"  >OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
       </MapContainer>
-      zoom = {mapStore.zoom}
     </div>
   ));
 }

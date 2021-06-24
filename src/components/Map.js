@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useObserver } from "mobx-react";
+import { useObserver } from "mobx-react-lite";
 import { useStores } from "../stores/index";
 import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
 //import { MarkerGeneral } from './MarkerGeneral';
@@ -22,9 +22,8 @@ export default function Map() {
 
   return useObserver(() => (
     <div className="Map">
-      zoom = {mapStore.zoom}
       <MapContainer
-        center={[51.505, -0.09]}
+        center={mapStore.center}
         zoom={mapStore.zoom}
         dragging={true}
         doubleclickZoom={true}

@@ -1,11 +1,10 @@
-import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
 
 const jsx = (
-  <StrictMode>
+  <div>
     <App />
-  </StrictMode>
+  </div>
 );
 
 ReactDOM.render(jsx, document.getElementById("root"));

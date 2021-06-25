@@ -3,8 +3,8 @@
 import { makeAutoObservable } from "mobx";
 
 class mapStore {
-  center = [51.505, -0.09];
-  zoom = 15;
+  center = [51.396, -2.315];
+  zoom = 10;
 
   constructor(rootStore) {
     this.rootStore = rootStore;

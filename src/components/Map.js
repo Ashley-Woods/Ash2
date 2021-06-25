@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { Component, useState } from "react";
 import { useObserver } from "mobx-react-lite";
 import { useStores } from "../stores/index";
-import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
-//import { MarkerGeneral } from './MarkerGeneral';
-import "../styles/map.css";
+import {
+  MapContainer,
+  TileLayer,
+  useMapEvents,
+  Circle,
+  GeoJSON
+} from "react-leaflet";
+import testData from "../data/data.json";
+import "../styles/Map.css";
 
 function MapEventHander() {
   const { mapStore } = useStores();
@@ -32,6 +38,18 @@ export default function Map() {
           attribution='&copy; <a href="http://osm.org/copyright"  >OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
+        <Circle
+          center={mapStore.center}
+          radius={50}
+          color={"#ff0000"}
+          weight={6}
+          fill={true}
+          fillOpacity={0.5}
+          fillColor={"#00ff00"}
+        />
+
+        <GeoJSON data={testData} />
 
         <MapEventHander />
       </MapContainer>

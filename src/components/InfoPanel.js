@@ -6,7 +6,7 @@ export default function InfoPanel() {
 
   return useObserver(() => (
     <div>
-      <h2> Map Info </h2>
+      <h4> Map Info </h4>
       Zoom = {mapStore.zoom}
     </div>
   ));
